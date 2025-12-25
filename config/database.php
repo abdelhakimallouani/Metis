@@ -4,6 +4,6 @@ return [
     'host' => 'localhost',
     'dbname' => 'metis',
     'user' => 'root',
-    'password' => ''
+    'password' => '20032014'
 ];
 ?>
