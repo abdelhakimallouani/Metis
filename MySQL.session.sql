@@ -24,6 +24,9 @@ CREATE TABLE projets (
         REFERENCES membres(id_membre)
 );
 
+SELECT * FROM projets
+
+
 CREATE TABLE projets_courts (
     id_projet INT PRIMARY KEY,
     duree_jours INT NOT NULL,
@@ -33,6 +36,24 @@ CREATE TABLE projets_courts (
         REFERENCES projets(id_projet)
 );
 
+-- ALTER TABLE projets_courts
+-- DROP CONSTRAINT id_projet
+
+-- SHOW CREATE TABLE projets_courts;
+
+-- ALTER TABLE projets_courts
+-- DROP FOREIGN KEY projets_courts_ibfk_1;
+
+ALTER TABLE projets_courts
+ADD CONSTRAINT projets_courts_ibfk_1
+FOREIGN KEY (id_projet)
+REFERENCES projets(id_projet)
+ON DELETE CASCADE;
+
+
+SELECT * FROM projets_courts
+
+
 CREATE TABLE projets_longs (
     id_projet INT PRIMARY KEY,
     budget FLOAT NOT NULL,
@@ -41,6 +62,10 @@ CREATE TABLE projets_longs (
     FOREIGN KEY (id_projet)
         REFERENCES projets(id_projet)
 );
+
+
+SELECT * FROM projets_longs
+
 
 CREATE TABLE activites (
     id_activite INT AUTO_INCREMENT PRIMARY KEY,
@@ -53,6 +78,7 @@ CREATE TABLE activites (
         REFERENCES projets(id_projet)
 );
 
+SELECT * FROM activites
 
 
 

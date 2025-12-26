@@ -16,9 +16,10 @@ class Membre extends BaseModel
             'email' => $email,
         ]);
     }
-    
-    public function updateMembre($idMembre, array $data){
-        return $this->update($idMembre,$data);
+
+    public function updateMembre($idMembre, array $data)
+    {
+        return $this->update($idMembre, $data);
     }
 
     public function deleteMembre($idMembre)
@@ -30,7 +31,6 @@ class Membre extends BaseModel
     {
         return $this->findById($idMembre);
     }
-
 }
 
 // class Membre
