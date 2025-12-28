@@ -9,31 +9,7 @@ L’objectif pédagogique principal est de maîtriser la **programmation orient�
 
 ## Arborescence du projet
 
-METIS/
-├─ app/
-│ ├─ Core/
-│ │ └─ BaseModel.php
-│ ├─ Database/
-│ │ └─ Database.php
-│ ├─ Models/
-│ │ ├─ Activite.php
-│ │ ├─ Membre.php
-│ │ ├─ Projet.php
-│ │ ├─ ProjetCourt.php
-│ │ └─ ProjetLong.php
-│ └─ Utils/
-│ └─ Validator.php
-├─ config/
-│ └─ database.php
-├─ Diagrammes/
-│ ├─ DiagrammeClasse.png
-│ └─ DiagrammeUseCase.png
-├─ public/
-│ └─ index.php
-├─ MySQL.session.sql
-└─ README.md
-
-
+![alt text](image.png)
 
 ---
 
