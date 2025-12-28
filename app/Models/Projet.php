@@ -47,6 +47,14 @@ abstract class Projet extends BaseModel
         return $this->findById($idProjet);
     }
 
+    public function getAllProjets()
+    {
+        $sql = "SELECT * FROM {$this->table} ORDER BY date_debut DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     public function getProjetsByMembre($idMembre)
     {
         $sql = "SELECT * FROM {$this->table} WHERE id_membre = :idMembre";

@@ -6,14 +6,26 @@ class Membre extends BaseModel
 {
     protected $table = 'membres';
     protected $primaryKey = 'id_membre';
+    protected $nom;
+    protected $prenom;
+    protected $email;
+    protected $dateIscription;
+
+    public function __construct($nom = null, $prenom = null, $email = null)
+    {
+        parent::__construct();
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->email = $email;
+    }
 
 
-    public function createMembre($nom, $prenom, $email)
+    public function createMembre()
     {
         return $this->create([
-            'nom' => $nom,
-            'prenom' => $prenom,
-            'email' => $email,
+            'nom' => $this->nom,
+            'prenom' => $this->prenom,
+            'email' => $this->email,
         ]);
     }
 
@@ -31,64 +43,12 @@ class Membre extends BaseModel
     {
         return $this->findById($idMembre);
     }
+
+    public function getAllMembre()
+    {
+        $sql = "SELECT * FROM {$this->table} ORDER BY date_inscription ASC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
-
-// class Membre
-// {
-//     private $idMembre;
-//     private $nom;
-//     private $prenom;
-//     private $email;
-//     private $dateIscription;
-
-//     function __construct($idMembre, $nom, $prenom, $email,$dateIscription) 
-//     {
-//         $this.$idMembre->$idMembre;
-//         $this.$nom->$nom;
-//         $this.$prenom->$prenom;
-//         $this.$email->$email;
-//         $this.$dateIscription->$dateIscription;
-//     }
-
-//     public function getIdMembre()
-//     {
-//         return $this->idMembre;
-//     }
-
-//     public function getNom()
-//     {
-//         return $this->nom;
-//     }
-
-//     public function setNom($nom)
-//     {
-//         $this->nom = $nom;
-//     }
-
-//     public function getPrenom()
-//     {
-//         return $this->prenom;
-//     }
-
-//     public function setPrenom($prenom)
-//     {
-//         $this->prenom = $prenom;
-//     }
-
-//     public function getEmail()
-//     {
-//         return $this->email;
-//     }
-
-//     public function setEmail($email)
-//     {
-//         $this->email = $email;
-//     }
-
-//     public function getDateIscription()
-//     {
-//         return $this->dateIscription;
-//     }
-
-
-// }
