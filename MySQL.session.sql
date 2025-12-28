@@ -40,6 +40,8 @@ CREATE TABLE activites (
         ON DELETE CASCADE
 );
 
+SELECT * FROM activites
+
 
 
 

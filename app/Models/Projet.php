@@ -5,7 +5,6 @@ abstract class Projet extends BaseModel
 {
     protected $table = 'projets';
     protected $primaryKey = 'id_projet';
-
     protected $idProjet;
     protected $titre;
     protected $dateDebut;

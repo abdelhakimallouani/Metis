@@ -4,6 +4,7 @@ require_once __DIR__ . '/../app/Models/Membre.php';
 require_once __DIR__ . '/../app/Models/Projet.php';
 require_once __DIR__ . '/../app/Models/ProjetCourt.php';
 require_once __DIR__ . '/../app/Models/ProjetLong.php';
+require_once __DIR__ . '/../app/Models/Activite.php';
 
 
 // $membre1 = new Membre();
@@ -44,7 +45,7 @@ require_once __DIR__ . '/../app/Models/ProjetLong.php';
 //     echo "ID: " . $infoProjet['id_projet'] . "\n";
 //     echo "Titre: " . $infoProjet['titre'] . "\n";
 //     echo "Statut: " . $infoProjet['statut'] . "\n";
-//     echo "Date début: " . $infoProjet['date_debut'] . "\n";
+//     echo "Date debut: " . $infoProjet['date_debut'] . "\n";
 //     echo "Date fin: " . $infoProjet['date_fin'] . "\n";
 // }
 
@@ -77,7 +78,7 @@ require_once __DIR__ . '/../app/Models/ProjetLong.php';
 //     echo "ID: " . $infoProjet['id_projet'] . "\n";
 //     echo "Titre: " . $infoProjet['titre'] . "\n";
 //     echo "Statut: " . $infoProjet['statut'] . "\n";
-//     echo "Date début: " . $infoProjet['date_debut'] . "\n";
+//     echo "Date debut: " . $infoProjet['date_debut'] . "\n";
 //     echo "Date fin: " . $infoProjet['date_fin'] . "\n";
 // }
 
@@ -92,7 +93,7 @@ require_once __DIR__ . '/../app/Models/ProjetLong.php';
 //         echo "- ID: " . $p['id_projet'] 
 //            . " | Titre: " . $p['titre'] 
 //            . " | Statut: " . $p['statut'] 
-//            . " | Date début: " . $p['date_debut'] 
+//            . " | Date debut: " . $p['date_debut'] 
 //            . " | Date fin: " . $p['date_fin'] 
 //            . "\n";
 //     }
@@ -111,10 +112,44 @@ require_once __DIR__ . '/../app/Models/ProjetLong.php';
 //         echo "- ID: " . $p['id_projet'] 
 //            . " | Titre: " . $p['titre'] 
 //            . $statut
-//            . " | Date début: " . $p['date_debut'] 
+//            . " | Date debut: " . $p['date_debut'] 
 //            . " | Date fin: " . $p['date_fin'] 
 //            . "\n";
 //     }
 // }
+
+// $activite = new Activite(
+//     "Analyse des besoins",
+//     "2025-01-10 10:00:00",
+//     "en cours",
+//     3 
+// );
+
+// $id = $activite->createActivite();
+
+// $activite = new Activite();
+// $result = $activite->getActiviteById(1);
+// print_r($result);
+
+// $activite = new Activite();
+
+// $activite->updateActivite(1, [
+//     'titre' => 'Analyse fonctionnelle',
+//     'statut' => 'termine'
+// ]);
+
+// $activite = new Activite();
+
+// $activites = $activite->getActiviteByProjet(3);
+
+// if (count($activites) > 0) {
+//     echo "Activites du projet 3:\n\n";
+//     foreach ($activites as $a) {
+//         echo "- ID: {$a['id_activite']} | {$a['titre']} | {$a['statut']} | {$a['date_activite']}\n";
+//     }
+// }
+
+// $activite = new Activite();
+// $activite->deleteActivite(1);
 
 
