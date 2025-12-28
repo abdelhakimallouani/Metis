@@ -6,13 +6,14 @@ abstract class Projet extends BaseModel
     protected $table = 'projets';
     protected $primaryKey = 'id_projet';
 
+    protected $idProjet;
     protected $titre;
     protected $dateDebut;
     protected $dateFin;
     protected $idMembre;
     protected $statut;
 
-    public function __construct($titre, $dateDebut, $dateFin, $idMembre)
+    public function __construct($titre = null, $dateDebut = null, $dateFin = null, $idMembre = null)
     {
         parent::__construct();
         $this->titre = $titre;
@@ -32,9 +33,6 @@ abstract class Projet extends BaseModel
         ]);
     }
 
-    abstract public function saveProjet();
-
-
     public function updateProjet($idProjet, array $data)
     {
         return $this->update($idProjet, $data);
@@ -45,64 +43,63 @@ abstract class Projet extends BaseModel
         return $this->delete($idProjet);
     }
 
-
-    public function ProjetById($idProjet)
+    public function getProjetById($idProjet)
     {
         return $this->findById($idProjet);
     }
 
-    // recuperer tous les projets d un membre
     public function getProjetsByMembre($idMembre)
     {
         $sql = "SELECT * FROM {$this->table} WHERE id_membre = :idMembre";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['id_membre' => $idMembre]);
+        $stmt->execute(['idMembre' => $idMembre]);
         return $stmt->fetchAll();
     }
 
+    abstract public function saveProjet();
 
-
-    // function __construct($idProject, $titre, $dateDebut, $dateFin, $idMembre)
-    // {
-    //     $this . $idProject->$idProject;
-    //     $this . $titre->$titre;
-    //     $this . $dateDebut->$dateDebut;
-    //     $this . $dateFin->$dateFin;
-    //     $this . $idMembre->$idMembre;
-    // }
-
-    // public function getTitre()
-    // {
-    //     return $this->titre;
-    // }
-
-    // public function setTitre($titre)
-    // {
-    //     $this->titre = $titre;
-    // }
-
-    // public function getDateDebut()
-    // {
-    //     return $this->dateDebut;
-    // }
-
-    // public function setDateDebut($dateDebut)
-    // {
-    //     $this->dateDebut = $dateDebut;
-    // }
-
-    // public function getDateFin()
-    // {
-    //     return $this->dateFin;
-    // }
-
-    // public function setDateFin($dateFin)
-    // {
-    //     $this->dateFin = $dateFin;
-    // }
-
-    // public function getIdMembre()
-    // {
-    //     return $this->idMembre;
-    // }
+    public function getIdProjet()
+    {
+        return $this->idProjet;
+    }
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+    }
+    public function getDateDebut()
+    {
+        return $this->dateDebut;
+    }
+    public function setDateDebut($dateDebut)
+    {
+        $this->dateDebut = $dateDebut;
+    }
+    public function getDateFin()
+    {
+        return $this->dateFin;
+    }
+    public function setDateFin($dateFin)
+    {
+        $this->dateFin = $dateFin;
+    }
+    public function getIdMembre()
+    {
+        return $this->idMembre;
+    }
+    public function setIdMembre($idMembre)
+    {
+        $this->idMembre = $idMembre;
+    }
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+    protected function setStatut($statut)
+    {
+        $this->statut = $statut;
+    }
 }

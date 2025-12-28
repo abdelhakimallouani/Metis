@@ -26,11 +26,11 @@ abstract class BaseModel
 
     public function update($id, array $data)
     {
-        $fields = [];
-        foreach ($data as $key) {
-            $fields[] = "$key = :$key";
+        $columns = [];
+        foreach ($data as $key=>$value) {
+            $columns[] = "$key = :$key";
         }
-        $sql = "UPDATE {$this->table} SET " .implode(', ', $fields). " WHERE {$this->primaryKey} = :id";
+        $sql = "UPDATE {$this->table} SET " .implode(', ', $columns). " WHERE {$this->primaryKey} = :id";
         $stmt = $this->conn->prepare($sql);
         $data['id'] = $id ;
         return $stmt->execute($data);
@@ -43,7 +43,6 @@ abstract class BaseModel
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
-
 
 
     public function findById($id)

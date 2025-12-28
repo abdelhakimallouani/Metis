@@ -25,41 +25,96 @@ require_once __DIR__ . '/../app/Models/ProjetLong.php';
 // }
 
 
-
-// $projet = new ProjetCourt(
-//     "Site Web YouCode", 
-//     "2025-12-25",     
-//     40,             
-//     "haute",          
-//     1                   
+// $projetCourt = new ProjetCourt(
+//     "Mini projet PHP",
+//     "2025-12-01 09:00:00",
+//     "2025-12-15 17:00:00",
+//     1
 // );
+// $idProjetCourt = $projetCourt->saveProjet();
 
-// $projetId = $projet->saveProjet();
+
+// $projetCourt = new ProjetCourt();
+// $projetCourt->deleteProjetById(1);
+
+// $projet = new ProjetCourt();
+// $infoProjet = $projet->getProjetById(4);
+
+// if ($infoProjet) {
+//     echo "ID: " . $infoProjet['id_projet'] . "\n";
+//     echo "Titre: " . $infoProjet['titre'] . "\n";
+//     echo "Statut: " . $infoProjet['statut'] . "\n";
+//     echo "Date début: " . $infoProjet['date_debut'] . "\n";
+//     echo "Date fin: " . $infoProjet['date_fin'] . "\n";
+// }
+
+
+// $idProjet = 4;
+// $projet = new ProjetCourt();
+// $dataUpdate = [
+//     'titre' => 'Titre mis à jour',
+//     'date_fin' => '2025-12-20 17:00:00'
+// ];
+
+// $result = $projet->updateProjet($idProjet, $dataUpdate);
 
 
 // $projetLong = new ProjetLong(
-//     "Plateforme e-learning",
-//     "2025-01-01",
-//     "2025-06-01",
-//     1,
-//     50000,
-//     "développement"
+//     "Mini projet PHP",
+//     "2025-12-01 09:00:00",
+//     "2025-12-15 17:00:00",
+//     1
 // );
+// $idProjetLong = $projetLong->saveProjet();
 
-// $id = $projetLong->saveProjet();
+// $projetLong = new ProjetLong();
+// $projetLong->deleteProjetById(2);
+
+// $projet = new ProjetLong();
+// $infoProjet = $projet->getProjetById(3);
+
+// if ($infoProjet) {
+//     echo "ID: " . $infoProjet['id_projet'] . "\n";
+//     echo "Titre: " . $infoProjet['titre'] . "\n";
+//     echo "Statut: " . $infoProjet['statut'] . "\n";
+//     echo "Date début: " . $infoProjet['date_debut'] . "\n";
+//     echo "Date fin: " . $infoProjet['date_fin'] . "\n";
+// }
 
 
-$projetCourt = new ProjetCourt();
-$id = $projetCourt->deleteProjetCourt (1);
+// $idMembre = 2;
+// $projet = new ProjetCourt();
+// $projets = $projet->getProjetsByMembre($idMembre);
+
+// if (count($projets) > 0) {
+//     echo " Liste des projets du membre ID $idMembre :\n\n";
+//     foreach ($projets as $p) {
+//         echo "- ID: " . $p['id_projet'] 
+//            . " | Titre: " . $p['titre'] 
+//            . " | Statut: " . $p['statut'] 
+//            . " | Date début: " . $p['date_debut'] 
+//            . " | Date fin: " . $p['date_fin'] 
+//            . "\n";
+//     }
+// }
 
 
-// $projetLong = ProjetCourt::deleteProjetCourt(1);
+// $idMembre = 2;
+// $projet = new ProjetCourt();
+// $projets = $projet->getProjetsByMembre($idMembre);
 
+// if (count($projets) > 0) {
+//     echo "Liste des projets du membre ID $idMembre :\n\n";
+//     foreach ($projets as $p) {
+//         $statut = ($p['statut'] === 'court') ? " | Statut: " . $p['statut'] : "";
 
-// $var = trim(fgetc(STDIN));
+//         echo "- ID: " . $p['id_projet'] 
+//            . " | Titre: " . $p['titre'] 
+//            . $statut
+//            . " | Date début: " . $p['date_debut'] 
+//            . " | Date fin: " . $p['date_fin'] 
+//            . "\n";
+//     }
+// }
 
-// $projetCong = new ProjetCourt();
-// $projetLong->deleteProjetCourt($var);
-
-// echo "delete id projet";
 
